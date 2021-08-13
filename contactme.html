@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<script type="text/javascript">
+function show(){
+ var element=document.getElementById('hourlyrate');
+ 
+   element.style.display='block';
+
+}
+function off(){
+ var element=document.getElementById('hourlyrate');
+ 
+   element.style.display='none';
+
+}
+
+function checkhour(a){
+ var element=document.getElementById('hourerror');
+ if (a < 10){
+element.style.display='block';
+}
+else{
+   element.style.display='none';
+}
+
+}
+
+
+
+
+</script> 
+<style>
+
+</style>
+
+
+<head>
+
+
+<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=0.9" />
+</head>
+
+<body>
+
+<form action="https://httpbin.org/post" method="POST">
+  <fieldset>
+<legend>Contact me:</legend>
+<label for="name">Name:</label>
+  <input type="text" id="name" name="name" placeholder="Enter your name" required><br>
+  <label for="email">Email:</label>
+  <input type="text" id="email" name="email" required ><br><br>
+<label for="address">address:</label>
+<input type="text" id="address" name="address" required><br><br>
+<label for="postalcode">postal code:</label>
+<input type="text" id="postalcode" name="postalcode" pattern="[ABCEGHJKLMNPRSTVXY]+[0-9]+[A-Z]+[0-9]+[A-Z]+[0-9]" required >
+<br><br>
+
+
+<label for="phone">Enter a phone number:</label>
+  <input type="tel" id="phone" name="phone" placeholder="1234-5678" pattern="[0-9]{4}-[0-9]{4}" required><br><br>
+  <small>Format: xxxx-xxxx</small><br><br>
+
+<br><br>
+<label for="wtia">what this is about:</label><br>
+
+
+
+<input type="radio" id="question" name="wtia" value="question" onchange="off();">
+<label for="question">quesion</label><br>
+
+<input type="radio" id="comment" name="wtia" value="comment" onchange="off();">
+<label for="comment">comment</label><br>
+
+<input type="radio" id="hiring" name="wtia" value="hiring" onchange="show();">
+<label for="hiring">hiring</label><br>
+
+<input type="text" name="wtia" id="hourlyrate" placeholder="Enter the hourly rate" style='display:none;' onchange= 'checkhour(this.value);'/><br>
+<label for="hiring" id="hourerror" style='display:none; color: red'>legal hourly rate must higher than 10</label><br>
+
+<br><br>
+
+<label for="city">city:</label>
+<input list="citys" name="city" id="city">
+
+<datalist id="citys" >
+  <option value="Toronto">
+  <option value="Vancouver">
+  <option value="Montreal">
+  <option value="Ottawa">
+
+</datalist>
+<br><br><br><br>
+<textarea id="message" name="message" rows="10" cols="80" >
+type your message here
+</textarea>
+  </fieldset>
+<br>
+<input type="submit" value="Submit" ><label >        </label><input type="reset" value="   Clear   " style="width:80px; margin-left:20px; " >
+</form>
+
+
+
+</body>
+
+
+</html>
